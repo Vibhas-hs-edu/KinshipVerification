@@ -1,1 +1,1 @@
-# KingshipVerification
+# KinshipVerification
