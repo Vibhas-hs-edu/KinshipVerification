@@ -26,7 +26,7 @@ Step 1 and 2 is a time consuming step. As a result, We have uploaded the process
 
 Run the predictions.ipynb file in google colab. This script builds the network by loading the network architecture file('export_arcface_families_ft-0060.params') as well as the weights file ('export_arcface_families_ft-symbol.json'). The forward pass on the test images generated an embedding of the image of 512 dimensions. Two images are compared using cosine distance as the metric. Finally we have kept the threshold as 0.1 to predict whether the images are kin or non kin based on the cosine metric.
 
-***References :**
+**References :**
 
 1) [Recognizing Families in the wild] (https://arxiv.org/abs/2002.06303)
 2) [Achieving Better Kinship Recognition Through Better Baseline] (https://arxiv.org/pdf/2006.11739v1.pdf)
