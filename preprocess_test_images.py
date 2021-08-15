@@ -28,38 +28,25 @@ def get_landmarks(face):
     a = np.array(tmp)
     return a
 
-def preprocess_train_images(train_dir :Path, output_dir : Path):
-    create_path_if_not_exists(output_dir)
-    #This script expects the folder to have the following structure
-    #FamilyFolder -> Persons Folder -> Images of a person
-    for family_path in tqdm(train_dir.iterdir()):
-        for person_path in family_path.iterdir():
-            if not person_path.is_dir():
-                continue
-            output_path = create_path_if_not_exists(output_dir / person_path.relative_to(train_dir))
-            print(output_path)
-            for img_path in person_path.iterdir():
-                output_path_img = output_path / img_path.name
-                print('output_path_img', output_path_img)
-                if os.path.exists(output_path_img):
-                    print(f'{output_path_img} already exists. Ignoring!')
-                    continue
-                img = cv2.imread(str(img_path))
-                faces = RetinaFace.detect_faces(img_path = str(img_path), threshold = 0.5)
-                landmarks = get_landmarks(faces)
-                if len(landmarks) == 0:
-                    print(f'smth wrong with {img_path}')
-                    warped_img = cv2.resize(img, (112, 112))
-                else:
-                    print(f'in norm_crop')
-                    warped_img = norm_crop(img, landmarks)
-                cv2.imwrite(str(output_path_img), warped_img)
+def preprocess_test_images(root_dir: Path, output_dir: Path):
+  output_dir = create_path_if_not_exists(output_dir)
+  for img_path in root_dir.iterdir():
+    img = cv2.imread(str(img_path))
+    resp = RetinaFace.detect_faces(img_path = str(img_path))
+    landmarks = get_landmarks(resp)
+    output_path = output_dir / img_path.name
+    if not landmarks.any():
+      print(f'smth wrong with {img_path}')
+      warped_img = cv2.resize(img, (112, 112))
+    else:
+      warped_img = norm_crop(img, landmarks)
+    cv2.imwrite(str(output_path), warped_img)
 
 if __name__ == '__main__':
     print('Hello world')
     #assert len(sys.argv) == 3
-    train_dir = sys.argv[1]
+    test_dir = sys.argv[1]
     output_dir = sys.argv[2]
-    preprocess_train_images(Path(train_dir), Path(output_dir))
+    preprocess_test_images(Path(test_dir), Path(output_dir))
 
 
