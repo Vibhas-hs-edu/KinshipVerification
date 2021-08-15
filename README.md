@@ -28,6 +28,6 @@ Run the predictions.ipynb file in google colab. This script builds the network b
 
 **References :**
 
-1) [Recognizing Families in the wild] (https://arxiv.org/abs/2002.06303)
-2) [Achieving Better Kinship Recognition Through Better Baseline] (https://arxiv.org/pdf/2006.11739v1.pdf)
-3) [Reference Implementation of Achieving Better Kinship Recognition Through Better Baseline] (https://github.com/vuvko/fitw2020)
+1) [Recognizing Families in the wild](https://arxiv.org/abs/2002.06303)
+2) [Achieving Better Kinship Recognition Through Better Baseline](https://arxiv.org/pdf/2006.11739v1.pdf)
+3) [Reference Implementation of Achieving Better Kinship Recognition Through Better Baseline](https://github.com/vuvko/fitw2020)
