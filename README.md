@@ -11,12 +11,12 @@ The verification is a four step process:
 
 **Step 1 :**
 
-Use the preprocess_train_images.py to perform the first step. The script takes two arguments, first argument is the train_images directory and the second argument is the output directory where the [processed images](https://drive.google.com/drive/u/1/folders/1JlSeDMo9eaIMgMT4EErw3v4qecruiNZH) will be saved to. Finally augment_images.ipynb file is use to augment the training directory. The output of this step is [train-faces-augmented-1](https://drive.google.com/drive/u/1/folders/1yfWpawfayqFM_DpTlqKIjetIzSDFq8Ee).
+Use the preprocess_train_images.py to perform the first step. The script takes two arguments, first argument is the train_images directory and the second argument is the output directory where the [processed images](https://drive.google.com/drive/u/1/folders/1JlSeDMo9eaIMgMT4EErw3v4qecruiNZH) will be saved to.
 Use the preprocess_test_images.py to do the same step for [test directory images](https://drive.google.com/drive/u/1/folders/1yfWpawfayqFM_DpTlqKIjetIzSDFq8Ee). There is no need to run these scripts as we have already saved the results in the google drive.
 
 **Step 2 :**
 
-We produce new sets of images by mirroring the image and storing it to the google drive. The new sets of images are further transformed by adding random color and jitter to the image.
+In this step, Data augmentation is performed. augment_images.ipynb file is use to augment the training directory(output of step 1). The output of this step is [train-faces-augmented-1](https://drive.google.com/drive/u/1/folders/1yfWpawfayqFM_DpTlqKIjetIzSDFq8Ee).We produce new sets of images by mirroring the image and storing it to the google drive. The new sets of images are further transformed by adding random color and jitter to the image. Again there is no need to run these scrips as the results are stored.
 
 **Step 3 :**
 
